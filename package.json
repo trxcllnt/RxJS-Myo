@@ -1,0 +1,17 @@
+{
+  "name": "RxJS-Myo",
+  "version": "0.0.1",
+  "description": "Myo events and composite gestures as Reactive Extensions Observables.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paul Taylor <paul.e.taylor@me.com>",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "rx": "~2.3.22"
+  },
+  "devDependencies": {
+    "ws": "~0.6.5"
+  }
+}
