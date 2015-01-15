@@ -9,7 +9,12 @@
   "author": "Paul Taylor <paul.e.taylor@me.com>",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "rx": "~2.3.22"
+    "browserify": "~8.1.0",
+    "d3-browserify": "~3.4.12",
+    "rx": "~2.3.23",
+    "rx-http-server": "~0.1.1",
+    "rx-request-handler": "~0.2.1",
+    "rx-router": "~0.2.2"
   },
   "devDependencies": {
     "ws": "~0.6.5"

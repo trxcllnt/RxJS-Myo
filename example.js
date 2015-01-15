@@ -1,24 +1,18 @@
-var inspect = require('util').inspect,
-    Rx = require('./index'),
-    Hub = Rx.Myo(require('ws').connect),
-    Events = Rx.Myo.Events(Hub),
-    Commands = Rx.Myo.Commands(Hub);
+var inspect = require("util").inspect,
+    Rx = require("rx"),
+    ws = require("ws"),
+    Myo = require("./index"),
+    Hub = Myo(ws.connect);
 
-Rx.Observable.merge([
-    Commands.groupByArm()
-        .flatMap(function(Arm) {
-            return Arm.setStreamEMGAcknowledged();
-        })
-        .select(function(x) { return ["command", x]; }),
-    
-    Events.groupByArm()
-        .flatMap(function(Arm) {
-            return Arm.setStreamEMG({"type":"enabled"}).isEMG();
-        })
-        .select(function(x) { return ["emg", x]; })
-    ])
+Hub .Events()
+    .groupByArm()
+    .flatMap(function(Arm) {
+        return Arm
+            .setEMG({"type": "enabled"})
+            .emg();
+    })
     .forEach(
-        function(xs) { console.log(xs[0], inspect(xs[1], {depth:null})); },
+        function(xs) { console.log(inspect(xs, {depth:null})); },
         function(er) { console.error(er); },
         function(  ) { console.log("completed"); }
     );
