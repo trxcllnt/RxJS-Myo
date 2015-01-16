@@ -3,14 +3,9 @@ var Rx = require("rx"),
     Myo = require("./index"),
     Hub = Myo(ws.connect || ws),
     inspect = require("util").inspect,
-    emg = Hub
-        .Events()
-        .groupByArm()
-        .flatMap(function(Arm) {
-            return Arm
-                .setEMG({"type": "enabled"})
-                .isEMG();
-        });
+    emg = Hub.Events().groupByArm().flatMap(function(Arm) {
+        return Arm.setEMG({"type": "enabled"}).isEMG();
+    });
 
 if(document) {
     var canvas = document.createElement("canvas");
