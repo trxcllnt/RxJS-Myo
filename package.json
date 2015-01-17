@@ -11,8 +11,9 @@
   "dependencies": {
     "browserify": "~8.1.0",
     "d3-browserify": "~3.4.12",
-    "rx": "~2.3.23",
-    "beefy": "~2.1.1"
+    "beefy": "~2.1.1",
+    "rx": "~2.3.24",
+    "rx-dom": "~4.0.3"
   },
   "devDependencies": {
     "ws": "~0.6.5"
