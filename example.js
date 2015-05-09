@@ -22,9 +22,11 @@ window && (window.onload = function() {
         while(++i < n) {
             canvas = canvases[i] || body.appendChild(document.createElement("canvas"));
             canvas.style.minWidth = "25%";
-            canvas.style.width = canvas.width = body.offsetWidth;
+            canvas.style.width = canvas.width = body.offsetWidth * 0.5;
             canvas.style.height = canvas.height = body.offsetHeight * 0.5;
             canvas.style.position = "absolute";
+            canvas.style.left = "50%";
+            canvas.style.marginLeft = (body.offsetWidth * 0.25 * -1) + "px";
             canvas.style.top = "50%";
             canvas.style.marginTop = (body.offsetHeight * 0.25 * -1) + "px";
         }
